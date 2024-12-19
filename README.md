@@ -25,8 +25,9 @@ This project is a Node.js application that provides a GraphQL API for accessing 
     yarn install
 ## Running the Application
 To start the API server locally, use:
-    ```bash
+    ```
     yarn start
+    ```
 
 The server will be running on http://localhost:4000/, where you can access the GraphQL Playground.
 
