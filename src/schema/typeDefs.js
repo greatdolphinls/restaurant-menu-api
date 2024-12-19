@@ -1,23 +1,31 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
-  # Define the structure for a menu item
-  type MenuItem {
-    name: String!
+  type Item {
+    name: String
     description: String
-    price: Float!
+    price: Float
+    priceOptions: PriceOptions
   }
 
-  # Define the structure for a category of menu items
+  type PriceOptions {
+    uno: Float
+    dos: Float
+    tres: Float
+  }
+
   type Category {
-    name: String!
-    items: [MenuItem!]!
+    description: String
+    items: [Item]
   }
 
-  # Define the main query type
+  type Menu {
+    category: String
+    items: [Item]
+  }
+
   type Query {
-    # Fetch all menu categories with their items
-    getMenu: [Category!]!
+    getMenu(category: String): [Menu]
   }
 `;
 

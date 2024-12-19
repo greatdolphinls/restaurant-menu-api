@@ -1,7 +1,6 @@
 {
-  "menu": [
-    {
-      "category": "APPETIZERS",
+    "APPETIZERS": {
+      "description": "",
       "items": [
         {
           "name": "Iceberg Wedge Salad with House Cured Bacon",
@@ -30,8 +29,8 @@
         }
       ]
     },
-    {
-      "category": "ENTREES",
+    "ENTREES": {
+      "description": "",
       "items": [
         {
           "name": "Farfalle Pasta with Braised Pork in Tomato Cream",
@@ -55,8 +54,7 @@
         }
       ]
     },
-    {
-      "category": "SANDWICHES",
+    "SANDWICHES": {
       "description": "Served with choice of house pasta salad, green salad, or fresh fruit. For an additional $1.50, you can upgrade to ½ pasta salad of the day, French onion soup, or soup of the day.",
       "items": [
         {
@@ -143,8 +141,8 @@
         }
       ]
     },
-    {
-      "category": "SOUP & SALAD COMBOS",
+    "SOUP & SALAD COMBOS": {
+      "description": "",
       "items": [
         {
           "name": "French Onion or Soup of the Day",
@@ -162,8 +160,7 @@
         }
       ]
     },
-    {
-      "category": "FAJITAS",
+    "FAJITAS": {
       "description": "Served with red rice, black beans, grilled tomato salad, choice of corn or flour tortillas",
       "items": [
         {
@@ -178,8 +175,7 @@
         }
       ]
     },
-    {
-      "category": "TACOS",
+    "TACOS": {
       "description": "Served with red rice, black beans, corn & romaine salad, tortilla chips",
       "items": [
         {
@@ -204,8 +200,8 @@
         }
       ]
     },
-    {
-      "category": "ENCHILADAS",
+    "ENCHILADAS": {
+      "description": "",
       "items": [
         {
           "name": "Beef, Chicken, Cheese or Veggie Enchilada",
@@ -228,8 +224,8 @@
         }
       ]
     },
-    {
-      "category": "QUICHE",
+    "QUICHE": {
+      "description": "",
       "items": [
         {
           "name": "Bacon, Swiss, Mushroom, Zucchini and Mushroom Quiche",
@@ -238,8 +234,8 @@
         }
       ]
     },
-    {
-      "category": "GREEN SALADS",
+    "GREEN SALADS": {
+      "description": "",
       "items": [
         {
           "name": "Grilled Red Trout",
@@ -273,5 +269,4 @@
         }
       ]
     }
-  ]
 }

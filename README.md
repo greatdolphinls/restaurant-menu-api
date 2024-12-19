@@ -40,27 +40,32 @@ Run the automated tests with:
 You can query the API using GraphQL. Here are some example queries:
 
 ### Fetch All Menu Categories and Items
-```
-    query {
-        getMenu {
-            name
-            items {
+This query retrieves all the categories (e.g., Appetizers, Entrees, etc.) along with their items' names, descriptions, and prices.
+
+```graphql
+query {
+    getMenu {
+        category
+        items {
             name
             description
             price
-            }
         }
     }
+}
 ```
 
 ### Fetch Items from a Specific Category
-```bash
+This query retrieves the items from a specific category (e.g., Appetizers). You can specify which fields to fetch, like item names, descriptions, or prices.
+
+```graphql
     query {
-        getMenu {
-            name
+        getMenu(category: "APPETIZERS") {
+            category
             items {
-            name
-            price
+                name
+                description
+                price
             }
         }
     }
@@ -71,23 +76,39 @@ You can query the API using GraphQL. Here are some example queries:
     {
         "data": {
             "getMenu": [
-            {
-                "name": "Appetizers",
-                "items": [
                 {
-                    "name": "Iceberg Wedge Salad with House Cured Bacon",
-                    "description": "Tomato salsa, gorgonzola",
-                    "price": 7.5
-                },
-                {
-                    "name": "Sautéed Shredded Brussels Sprouts",
-                    "description": "Bacon, hazelnuts, gorgonzola",
-                    "price": 6.95
+                    "category": "APPETIZERS",
+                    "items": [
+                        {
+                            "name": "Iceberg Wedge Salad with House Cured Bacon",
+                            "description": "tomato salsa, gorgonzola",
+                            "price": 7.5
+                        },
+                        {
+                            "name": "Sautéed Shredded Brussels Sprouts",
+                            "description": "bacon, hazelnuts, gorgonzola",
+                            "price": 6.95
+                        },
+                        {
+                            "name": "Kale Salad",
+                            "description": "parmesan crisp, corn, radish, garlic-lemon vinaigrette",
+                            "price": 7.5
+                        },
+                        {
+                            "name": "Pecan Crusted Utah Goat Cheese with Basil-Mint Pesto",
+                            "description": "grilled tomato salsa, crostini",
+                            "price": 6.95
+                        },
+                        {
+                            "name": "Chicken and Cabbage Eggrolls",
+                            "description": "hot & sour dipping sauce",
+                            "price": 6.95
+                        }
+                    ]
                 }
-                ]
-            }
             ]
         }
     }
+
 ```
 

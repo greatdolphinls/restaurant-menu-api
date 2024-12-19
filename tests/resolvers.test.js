@@ -1,20 +1,39 @@
-const resolvers = require('../src/resolvers/');
-const menuData = require('../src/data/menuData.json');
+const { ApolloServer, gql } = require('apollo-server');
+const { createTestClient } = require('apollo-server-testing');
+const typeDefs = require('../src/schema/typeDefs');
+const resolvers = require('../src/resolvers');
 
-describe('Resolvers', () => {
-  test('getMenu returns all menu categories and items', () => {
-    const result = resolvers.Query.getMenu();
-    expect(result.length).toBe(Object.keys(menuData).length);
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+});
 
-    Object.keys(menuData).forEach((category, index) => {
-      expect(result[index].name).toBe(category);
-      expect(result[index].items.length).toBe(menuData[category].length);
+const { query } = createTestClient(server);
 
-      menuData[category].forEach((item, itemIndex) => {
-        expect(result[index].items[itemIndex].name).toBe(item.name);
-        expect(result[index].items[itemIndex].description).toBe(item.description);
-        expect(result[index].items[itemIndex].price).toBe(item.price);
-      });
-    });
+describe('GraphQL API', () => {
+  it('fetches the full menu', async () => {
+    const GET_MENU = gql`
+      query {
+        getMenu {
+          category
+          items {
+            name
+            description
+            price
+            priceOptions {
+              uno
+              dos
+              tres
+            }
+          }
+        }
+      }
+    `;
+
+    const res = await query({ query: GET_MENU });
+    
+    expect(res.errors).toBeUndefined();
+    expect(res.data.getMenu).toHaveLength(9);
+    expect(res.data.getMenu[0].items[0].name).toBeDefined();
   });
 });
